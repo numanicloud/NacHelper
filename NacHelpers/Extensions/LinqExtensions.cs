@@ -163,5 +163,38 @@ namespace NacHelpers.Extensions
 				yield return value;
 			}
 		}
+
+		/// <summary>
+		/// 2つのコレクションの直積を計算し、結果を指定した方法で射影した新しいコレクションを返します。
+		/// </summary>
+		/// <typeparam name="TOuter">1つめのコレクションの要素の型。</typeparam>
+		/// <typeparam name="TInner">2つめのコレクションの要素の型。</typeparam>
+		/// <typeparam name="TResult">結果のコレクションの要素の型。</typeparam>
+		/// <param name="outer">1つめのコレクション。</param>
+		/// <param name="inner">2つめのコレクション。</param>
+		/// <param name="selector">要素を射影するデリゲート。</param>
+		/// <returns></returns>
+		public static IEnumerable<TResult> Product<TOuter, TInner, TResult>(
+			this IEnumerable<TOuter> outer,
+			IEnumerable<TInner> inner,
+			Func<TOuter, TInner, TResult> selector)
+		{
+			return outer.Join(inner, o => 0, i => 0, selector);
+		}
+
+		/// <summary>
+		/// 2つのコレクションの直積として、タプルを要素に持つコレクションを返します。
+		/// </summary>
+		/// <typeparam name="TOuter">1つめのコレクションの要素の型。</typeparam>
+		/// <typeparam name="TInner">2つめのコレクションの要素の型。</typeparam>
+		/// <param name="outer">1つめのコレクション。</param>
+		/// <param name="inner">2つめのコレクション。</param>
+		/// <returns></returns>
+		public static IEnumerable<(TOuter outer, TInner inner)> Product<TOuter, TInner>(
+			this IEnumerable<TOuter> outer,
+			IEnumerable<TInner> inner)
+		{
+			return outer.Join(inner, o => 0, i => 0, (o, i) => (o, i));
+		}
 	}
 }

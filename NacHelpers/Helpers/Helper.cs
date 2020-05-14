@@ -36,5 +36,10 @@ namespace NacHelpers.Helpers
 		{
 			return Math.Abs(x - y) < error;
 		}
+
+		public static (T min, T max) MinMax<T>(T value1, T value2) where T : IComparable<T>
+		{
+			return value1.CompareTo(value2) > 0 ? (value2, value1) : (value1, value2);
+		}
 	}
 }
