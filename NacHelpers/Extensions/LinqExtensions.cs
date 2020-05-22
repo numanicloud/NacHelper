@@ -38,7 +38,9 @@ namespace NacHelpers.Extensions
 		/// <param name="source">対象となるコレクション。</param>
 		/// <param name="selector">コレクションの要素を射影するデリゲート。</param>
 		/// <returns></returns>
-		public static T MaxItem<T, U>(this IEnumerable<T> source, Func<T, U> selector) where U : IComparable<U>
+		public static T? MaxItem<T, U>(this IEnumerable<T> source, Func<T, U> selector)
+			where T : class
+			where U : IComparable<U>
 		{
 			if (!source.Any())
 			{
@@ -99,14 +101,14 @@ namespace NacHelpers.Extensions
 		/// <remarks>コレクションの要素が0個の場合、 -1 を返します。</remarks>
 		/// <returns></returns>
 		public static int MaxIndex<T>(this IEnumerable<T> source)
-			where T : IComparable<T>
+			where T :  IComparable<T>
 		{
 			int index = 0;
 			int maxIndex = -1;
 			T maxItem = default;
 			foreach (var item in source)
 			{
-				if (maxIndex == -1 || item.CompareTo(maxItem) > 0)
+				if (maxIndex == -1 || (maxItem is T t && item.CompareTo(t) > 0))
 				{
 					maxItem = item;
 					maxIndex = index;
@@ -195,6 +197,28 @@ namespace NacHelpers.Extensions
 			IEnumerable<TInner> inner)
 		{
 			return outer.Join(inner, o => 0, i => 0, (o, i) => (o, i));
+		}
+
+		public static IEnumerable<T> FilterNullRef<T>(this IEnumerable<T?> source) where T : class
+		{
+			foreach (var item in source)
+			{
+				if (item is { })
+				{
+					yield return item;
+				}
+			}
+		}
+
+		public static IEnumerable<T> FilterNullValue<T>(this IEnumerable<T?> source) where T : struct
+		{
+			foreach (var item in source)
+			{
+				if (item.HasValue)
+				{
+					yield return item.Value;
+				}
+			}
 		}
 	}
 }
