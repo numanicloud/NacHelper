@@ -220,5 +220,10 @@ namespace NacHelpers.Extensions
 				}
 			}
 		}
+
+		public static IEnumerable<T> ToLinear<T>(this IEnumerable<IEnumerable<T>> source)
+		{
+			return source.SelectMany(x => x);
+		}
 	}
 }

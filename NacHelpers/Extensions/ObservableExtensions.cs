@@ -40,6 +40,11 @@ namespace NacHelpers.Extensions
 
             void Source_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
             {
+                if (proxy is null)
+                {
+                    throw new Exception();
+                }
+
                 switch (e.Action)
                 {
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
