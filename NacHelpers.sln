@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NacHelpers", "NacHelpers\NacHelpers.csproj", "{8EC35AD4-66FE-4F54-B37D-86478BD6D873}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NacHelpers", "NacHelpers\NacHelpers.csproj", "{8EC35AD4-66FE-4F54-B37D-86478BD6D873}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NacHelpers.Test", "NacHelpers.Test\NacHelpers.Test.csproj", "{0696B024-91AE-4D85-A3A1-D41B56DC990A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NacHelpers.Test", "NacHelpers.Test\NacHelpers.Test.csproj", "{0696B024-91AE-4D85-A3A1-D41B56DC990A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NacHelpers.Try", "NacHelpers.Try\NacHelpers.Try.csproj", "{055AECD2-1EC0-4F49-9781-B70864E35E3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0696B024-91AE-4D85-A3A1-D41B56DC990A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0696B024-91AE-4D85-A3A1-D41B56DC990A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0696B024-91AE-4D85-A3A1-D41B56DC990A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{055AECD2-1EC0-4F49-9781-B70864E35E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{055AECD2-1EC0-4F49-9781-B70864E35E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{055AECD2-1EC0-4F49-9781-B70864E35E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{055AECD2-1EC0-4F49-9781-B70864E35E3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
