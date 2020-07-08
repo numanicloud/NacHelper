@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Linq;
 using System.Reactive.Linq;
 
 namespace NacHelpers.Implementation
 {
-	class TotalObservable : IObservable<float>
+	internal class TotalObservable : IObservable<float>
 	{
 		private IObservable<float> source;
 

@@ -13,7 +13,7 @@ namespace NacHelpers.Extensions
 		/// <param name="source">対象となる配列。</param>
 		/// <param name="random">乱数クラス。</param>
 		/// <returns></returns>
-		public static T GetRandomElement<T>(this T[] source, Random random = null)
+		public static T GetRandomElement<T>(this T[] source, Random? random = null)
 		{
 			random = random ?? new Random();
 			var index = random.Next() % source.Length;

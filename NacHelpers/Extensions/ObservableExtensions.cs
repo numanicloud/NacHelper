@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reactive.Linq;
 
 namespace NacHelpers.Extensions
 {
@@ -39,6 +40,11 @@ namespace NacHelpers.Extensions
 
             void Source_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
             {
+                if (proxy is null)
+                {
+                    throw new Exception();
+                }
+
                 switch (e.Action)
                 {
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
@@ -72,6 +78,38 @@ namespace NacHelpers.Extensions
                     break;
                 }
             }
+        }
+
+        public static IObservable<T> FilterNullRef<T>(this IObservable<T?> source) where T : class
+        {
+            return source.Where(x => !(x is null))
+                .Select(x =>
+                {
+                    if (x is null)
+                    {
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        return x;
+                    }
+                });
+        }
+
+        public static IObservable<T> FilterNullValue<T>(this IObservable<T?> source) where T : struct
+        {
+            return source.Where(x => !(x is null))
+                .Select(x =>
+                {
+                    if (x is null)
+                    {
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        return x.Value;
+                    }
+                });
         }
     }
 }
