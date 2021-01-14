@@ -2,7 +2,7 @@
 
 namespace NacHelpers.FilePath2
 {
-	readonly struct FileExtension
+	public readonly struct FileExtension
 	{
 		public string WithDot { get; }
 		public string WithoutDot => WithDot[1..];

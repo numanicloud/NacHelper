@@ -2,27 +2,27 @@
 
 namespace NacHelpers.FilePath2.Interfaces
 {
-	interface IRelativeFilePath : IFilePath, IRelativePath
+	public interface IRelativeFilePath : IFilePath, IRelativePath
 	{
 	}
 
-	interface IAbsoluteFilePath : IFilePath, IAbsolutePath
+	public interface IAbsoluteFilePath : IFilePath, IAbsolutePath
 	{
 	}
 
-	interface IRelativeFilePathExt : IFilePathWithExtension, IRelativePath
+	public interface IRelativeFilePathExt : IFilePathWithExtension, IRelativePath
 	{
 	}
 
-	interface IAbsoluteFilePathExt : IFilePathWithExtension, IAbsolutePath
+	public interface IAbsoluteFilePathExt : IFilePathWithExtension, IAbsolutePath
 	{
 	}
 
-	interface IRelativeDirectoryPath : IDirectoryPath, IRelativePath
+	public interface IRelativeDirectoryPath : IDirectoryPath, IRelativePath
 	{
 	}
 
-	interface IAbsoluteDirectoryPath : IDirectoryPath, IAbsolutePath
+	public interface IAbsoluteDirectoryPath : IDirectoryPath, IAbsolutePath
 	{
 	}
 }

@@ -5,7 +5,7 @@ using NacHelpers.FilePath2.Routing;
 
 namespace NacHelpers.FilePath2.Interfaces
 {
-	interface IDirectoryPath : IFileSystemPath
+	public interface IDirectoryPath : IFileSystemPath
 	{
 		public bool Exists() => Directory.Exists(PathString);
 		public DirectoryInfo Create() => Directory.CreateDirectory(PathString);

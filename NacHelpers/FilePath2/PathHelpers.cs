@@ -4,7 +4,7 @@ using NacHelpers.FilePath2.Routing;
 
 namespace NacHelpers.FilePath2
 {
-	static class PathHelpers
+	public static class PathHelpers
 	{
 		public static IFilePath AsFilePath(string pathString)
 		{
@@ -51,6 +51,7 @@ namespace NacHelpers.FilePath2
 			IFileSystemPath result = Path.EndsInDirectorySeparator(pathString)
 				? AsDirectoryPath(pathString)
 				: AsFilePath(pathString);
+
 			return result;
 		}
 	}

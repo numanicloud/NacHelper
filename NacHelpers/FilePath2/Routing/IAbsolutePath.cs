@@ -2,7 +2,7 @@
 
 namespace NacHelpers.FilePath2.Routing
 {
-	interface IAbsolutePath : IFileSystemPath
+	public interface IAbsolutePath : IFileSystemPath
 	{
 		IRouting IFileSystemPath.RoutingInfo => new AbsoluteRoute();
 	}

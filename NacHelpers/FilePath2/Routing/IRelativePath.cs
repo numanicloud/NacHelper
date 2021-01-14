@@ -2,7 +2,7 @@
 
 namespace NacHelpers.FilePath2.Routing
 {
-	interface IRelativePath : IFileSystemPath
+	public interface IRelativePath : IFileSystemPath
 	{
 		IRouting IFileSystemPath.RoutingInfo => new RelativeRoute();
 	}
