@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NacHelpers.FilePath.Interfaces;
-
-namespace NacHelpers.FilePath
+﻿namespace NacHelpers.FilePath
 {
 	public static class FilePathHelper
 	{
