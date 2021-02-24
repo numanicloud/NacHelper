@@ -41,19 +41,22 @@ namespace NacHelpers.Extensions
 			return disposable;
 		}
 
-		/// <summary>
-		/// 整数値を文字列に変換します。正の数の場合も符号を与えます。
-		/// </summary>
-		/// <param name="value">文字列化する整数値。</param>
-		/// <returns></returns>
-		public static string ToSignedString(this int value)
+		public static bool AllEqual<T>(this T left, T right, params Func<T, object>[] selectors)
 		{
-			return (value > 0 ? "+" : "") + value;
+			foreach (var selector in selectors)
+			{
+				if (selector(left) != selector(right))
+				{
+					return false;
+				}
+			}
+
+			return true;
 		}
 
-		public static string Concat(IEnumerable<char> source)
+		public static void AddRangeTo<T>(this IEnumerable<T> source, List<T> list)
 		{
-			return string.Concat(source);
+			list.AddRange(source);
 		}
 	}
 }
